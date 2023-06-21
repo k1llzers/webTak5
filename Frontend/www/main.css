@@ -106,7 +106,7 @@ hr{
     border-radius: 5px;
 }
 
-.filter button:focus{
+.filter .choose{
     background-color: #ee8900;
     color: white;
 }
@@ -130,24 +130,24 @@ hr{
     border: 1px solid #e1e1df;
 }
 
-.new::before{
-    position: absolute;
-    content: "Нова";
-    color: white;
-    font-size: 18px;
-    background-color: #db524b;
-    top: -3%;
-    right: -5%;
-    padding: 5px 10px;
-    border-radius: 5px;
-}
-
 .popular::before{
     position: absolute;
     content: "Популярна";
     color: white;
     font-size: 18px;
     background-color: #59b957;
+    top: -3%;
+    right: -5%;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.new::before{
+    position: absolute;
+    content: "Нова";
+    color: white;
+    font-size: 18px;
+    background-color: #db524b;
     top: -3%;
     right: -5%;
     padding: 5px 10px;
@@ -321,12 +321,16 @@ hr{
     flex-direction: column;
     height: 85%;
     background-color: #f9fafc;
+    max-height: 1025px;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .orderItem{
     padding: 15px 0 10px 20px;
     display: flex;
     flex-direction: row;
+    position: relative;
 }
 
 .infoAboutPizza{
@@ -366,6 +370,7 @@ hr{
     font-size: 14px;
     color: black;
     font-weight: 600;
+    width: 46.2px;
 }
 
 .price .minus,.price .plus,.price .cancel{
@@ -402,7 +407,7 @@ hr{
 }
 
 .orderImage{
-    position: fixed;
+    position: absolute;
     right: 0;
     width: 105px;
     height: 105px;
@@ -448,7 +453,7 @@ hr{
     }
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 1220px) {
     .delivery{
         display: none;
     }
@@ -480,19 +485,6 @@ hr{
 
     .header{
         padding-right: 5px;
-    }
-
-    .pizzaList{
-        width: 98%;
-    }
-}
-
-@media (max-width: 1020px) {
-    .filter{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
     }
 
     .pizzaList{
@@ -543,7 +535,7 @@ hr{
     }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 640px) {
     .price .cancel{
         margin-left: 5px;
     }

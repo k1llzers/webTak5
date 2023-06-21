@@ -175,7 +175,6 @@ var pizza_info = [
     }
 ];
 
-module.exports = pizza_info;
 },{}],2:[function(require,module,exports){
 /**
  * Created by chaika on 02.02.16.
