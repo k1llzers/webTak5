@@ -150,6 +150,7 @@ function printPizza(pizza){
 
 function setFilter(properties,button){
     previousFilter.classList.remove('choose');
+    document.querySelectorAll(".allPizza label")[0].textContent = button.textContent;
     let identifiers = [];
     for (const pizza of pizza_info){
         if (properties === 'all')
@@ -159,8 +160,10 @@ function setFilter(properties,button){
     }
     if (properties === 'vega')
         identifiers.push(17);
-    if (properties === 'all')
+    if (properties === 'all'){
+        document.querySelectorAll(".allPizza label")[0].textContent = "Усі піци";
         identifiers.fill(1,100);
+    }
     for (const pizzaItem of pizzaList.children){
         if (identifiers.includes(+pizzaItem.id)){
             pizzaItem.setAttribute("style","display:flex");
@@ -168,7 +171,6 @@ function setFilter(properties,button){
             pizzaItem.setAttribute("style","display:none");
         }
     }
-    document.querySelectorAll(".allPizza label")[0].textContent = button.textContent;
     document.querySelectorAll(".allPizza label")[1].textContent = identifiers.length;
     button.classList.add("choose");
     previousFilter = button;
@@ -271,7 +273,7 @@ function printPizzaInOrder(pizza){
     priceSection.classList.add("price");
     let totalLabel = document.createElement("label");
     totalLabel.classList.add("total")
-    totalLabel.textContent = (pizza.size==="small"?currentPizza.small_size.price:currentPizza.big_size.price) + 'грн';
+    totalLabel.textContent = ((pizza.size==="small"?currentPizza.small_size.price:currentPizza.big_size.price) * pizza.count) + 'грн';
     let minusButton = document.createElement("button");
     minusButton.classList.add("minus");
     minusButton.style.marginLeft = '10px';
